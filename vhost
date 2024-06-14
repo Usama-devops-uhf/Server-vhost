@@ -26,9 +26,11 @@ For App - Mobile access code
 
 [smpuser1@salesforceapp conf.d] $
 [smpuser1@salesforceapp conf.d]$ cat salesforceuatapi.conf
+
 <VirtualHost *:80>
-ServerName salesforceuatapi.tdl.ubl.com ServerAlias salesforceuatapi.tdl.ubl.com DocumentRoot
-/var/www/salesforce/salesforce_ubl/salesforce_frontend_combine/htdocs/api/public
+ServerName salesforceuatapi.tdl.ubl.com 
+ServerAlias salesforceuatapi.tdl.ubl.com 
+DocumentRoot /var/www/salesforce/salesforce_ubl/salesforce_frontend_combine/htdocs/api/public
 SetEnv APPLICATION_ENV "development"
 <Directory "/var/www/salesforce/salesforce_ubl/salesforce_frontend_combine/htdocs/api/public"> DirectoryIndex index.php Allowoverride All
 Order allow, deny
@@ -90,4 +92,10 @@ need to check crontab ,
 > which curl 
 
 > * * * * * /usr/bin/curl -s https://sf.uhfdemo.com/phpscripts/adc/meetingnotification.php
+
+-----------------------------------------------------------------------------------------------------------
+
+Inside ".env" files all must be also ".env" file ka ander "vendor" ka folder move karwana ha , phir storage ka folder ko +777 
+ke permission ane han 
+-----------------------------------------------------------------------------------------------------------------
 
