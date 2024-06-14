@@ -81,5 +81,13 @@ ServerSignature Off
 grep -lr "my.cnf"
 grep -lr "mysqld.cnf"
 
+---------------------------------------------------------------------------------------------------------------------
 
+For Crontab 
+
+need to check crontab , 
+
+> which curl 
+
+> * * * * * /usr/bin/curl -s https://sf.uhfdemo.com/phpscripts/adc/meetingnotification.php
 
