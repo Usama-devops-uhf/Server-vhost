@@ -99,3 +99,46 @@ Inside ".env" files all must be also ".env" file ka ander "vendor" ka folder mov
 ke permission ane han 
 -----------------------------------------------------------------------------------------------------------------
 
+
+<VirtualHost *:80>
+    ServerName sf_bh.uhfdemo.com
+   # DocumentRoot "/var/www/salesforce_uhf/salesforce_frontend_combine/htdocs/html/"
+    DocumentRoot "/var/www/salesforce_bahl/bahl_salesforce/salesforce_frontend_combine/htdocs/html/"
+
+     <FilesMatch \.php$>
+        SetHandler "proxy:unix:/run/php/php7.3-fpm.sock|fcgi://localhost/"
+    </FilesMatch>
+
+
+#RewriteEngine on
+#RewriteCond %{SERVER_NAME} =salesforce.uhfdemo.com
+#RewriteRule ^ https://%{SERVER_NAME}%{REQUEST_URI} [END,NE,R=permanent]
+</VirtualHost>
+
+
+<VirtualHost *:80>
+ServerName sf_bhapi.uhfdemo.com
+
+DocumentRoot "/var/www/salesforce_bahl/bahl_salesforce/salesforce_frontend_combine/htdocs/api/public/"
+SetEnv APPLICATION_ENV "development"
+
+<FilesMatch \.php$>
+        SetHandler "proxy:unix:/run/php/php7.3-fpm.sock|fcgi://localhost/"
+    </FilesMatch>
+
+#SetEnv APPLICATION_ENV "development"
+    <Directory "/var/www/salesforce_bahl/bahl_salesforce/salesforce_frontend_combine/htdocs/api/public/">
+        DirectoryIndex index.php
+        AllowOverride All
+        Order allow,deny
+        Allow from all
+    </Directory>
+</VirtualHost>
+------------------------------------------------------------------------------------------------------------------------
+
+/salesforce_frontend_combine/htdocs/api/storage/logs > storage ka ander sara folder ko +777 ke permission do , app,boosrap, config,
+database, public , rsources , routes , storage , tests , vender 
+
+-----------------------------------------------------------------------------------------------------------------
+
+/salesforce_frontend_combine/htdocs/api/config > swagger-lume.php , need to update the last "api" line , 
