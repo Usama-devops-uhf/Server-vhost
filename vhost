@@ -153,3 +153,13 @@ database, public , rsources , routes , storage , tests , vender
 sql_mode=""
 ----------------------------------------------------------------------------------------------------------------------
 
+for remote user access connect web server to db server
+-	sudo nano /etc/mysql/mysql.conf.d/mysqld.cnf
+-	bind 127.0.0.1 to 0.0.0.0
+-	/etc/init.d/mysql restart
+-	Note; Strict mode must be off > under /etc/mysql/my.cnf
+-	[mysqld]
+-	sql_mode="NO_ENGINE_SUBSTITUTION,ERROR_FOR_DIVISION_BY_ZERO,NO_ZERO_DATE,NO_ZERO_IN_DATE"
+
+----------------------------------------------------------------------------------------------------------------------
+
