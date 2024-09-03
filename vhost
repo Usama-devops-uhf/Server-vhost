@@ -161,5 +161,9 @@ for remote user access connect web server to db server
 -	[mysqld]
 -	sql_mode="NO_ENGINE_SUBSTITUTION,ERROR_FOR_DIVISION_BY_ZERO,NO_ZERO_DATE,NO_ZERO_IN_DATE"
 
-----------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
 
+http://54.144.181.208/svn/testrepo/repo_name
+http://54.144.181.208/svn/testrepo/salesforce_assets_managemet
+
+sudo svn checkout http://54.144.181.208/svn/testrepo/salesforce_assets_managemet
