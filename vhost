@@ -151,6 +151,7 @@ database, public , rsources , routes , storage , tests , vender
 
 [mysqld]
 sql_mode=""
+select @@sql_mode; > check after login DB 
 ----------------------------------------------------------------------------------------------------------------------
 
 for remote user access connect web server to db server
