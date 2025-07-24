@@ -168,3 +168,32 @@ http://54.144.181.208/svn/testrepo/repo_name
 http://54.144.181.208/svn/testrepo/salesforce_assets_managemet
 
 sudo svn checkout http://54.144.181.208/svn/testrepo/salesforce_assets_managemet
+
+-------------------block access directory listing and direct access via apache------------------------------
+
+1) create .htaccess file and block all the access like under /html/misc/
+var/www/anjumanwazifa/htdocs/html/misc$ cat .htaccess
+# Deny all access to this directory
+Order allow,deny
+Deny from all
+
+# Apache 2.4+ version > for newer apache version
+Require all denied
+----------------------------------------------block IP access direct------------------------
+ # Redirect to HTTPS for valid domain only
+    RewriteEngine On
+
+    # Block direct access via IP
+    RewriteCond %{HTTP_HOST} !^document\.anjumanwazifa\.org$ [NC]
+    RewriteRule ^ - [F]
+
+    # Redirect valid domain to HTTPS
+    RewriteCond %{HTTP_HOST} ^document\.anjumanwazifa\.org$ [NC]
+    RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+---------------------------------------------------------------------------------------------
+sudo a2enmod rewrite
+sudo systemctl reload apache2
+
+
+
+
